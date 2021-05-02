@@ -1,6 +1,6 @@
 {
   "search.exclude": {
     "finished-application/": true,
-    "stepped-solutions/": true,
+    "**/stepped-solutions/": true,
   }
 }
