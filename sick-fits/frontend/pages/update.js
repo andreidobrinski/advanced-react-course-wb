@@ -6,7 +6,7 @@ export default function UpdatePage() {
 
   return (
     <div>
-      <UpdateProduct />
+      <UpdateProduct id={query.id} />
     </div>
   );
 }
