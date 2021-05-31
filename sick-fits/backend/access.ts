@@ -34,6 +34,34 @@ export const rules = {
       }
     };
   },
+  canOrder({ session }: ListAccessArgs) {
+    // do they have the permission?
+    if (permissions.canManageCart({ session })) {
+      return true;
+    }
+
+    // if not, do they own this item?
+    return {
+      user: {
+        id: session.itemId
+      }
+    };
+  },
+  canManageOrderItems({ session }: ListAccessArgs) {
+    // do they have the permission?
+    if (permissions.canManageCart({ session })) {
+      return true;
+    }
+
+    // if not, do they own this item?
+    return {
+      order: {
+        user: {
+          id: session.itemId
+        }
+      }
+    };
+  },
   canReadProducts({ session }: ListAccessArgs) {
     if (permissions.canManageProducts({ session })) {
       return true; // they can read everything
